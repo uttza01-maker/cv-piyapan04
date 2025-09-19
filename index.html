@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Treats Bakery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- Font Imports --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+        body {
+
+            width: 1280px;
+            min-height: 5721px;
+            margin: 0 auto;
+
+            /* --- Existing Styles --- */
+            font-family: 'Poppins', sans-serif;
+            /* Or your chosen default font */
+            background-color: #FFFFFF;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Hero Section (Header) --- */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/bg01.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 813px;
+            position: relative;
+            /* This is crucial for absolute positioning of children */
+            color: #ffffff;
+        }
+
+        /* --- Logo --- */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 70px;
+        }
+
+        .logo-container img {
+            height: 87px;
+            width: auto;
+        }
+
+        /* --- Top Navigation --- */
+        .top-nav {
+            position: absolute;
+            top: 61px;
+            left: 293px;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .top-nav a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+
+        }
+
+        .top-nav a:hover {
+            color: #E9BD8C;
+        }
+
+        /* --- Main Hero Content --- */
+
+        /* Text: "Deliciously Cafe" */
+        .hero-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            position: absolute;
+            top: 277px;
+            left: 83px;
+        }
+
+        /* Main Heading: "Sweet Treats, Perfect Eats" */
+        .hero-content h1 {
+            font-family: 'Sansita Swashed', cursive;
+            font-weight: 400;
+            font-size: 74px;
+            line-height: 1.1;
+            /* --- Existing Positioning & Layout --- */
+            position: absolute;
+            top: 318px;
+            left: 75px;
+            width: 424px;
+            margin: 0;
+        }
+
+        /* -- Buttons -- */
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 24px 38px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            /* --- Your Specified Position --- */
+            position: absolute;
+            top: 567px;
+            left: 80px;
+
+            /* --- Styling to Match the Image --- */
+            display: inline-block;
+            padding: 24px 38px;
+            background-color: #c86e3b;
+            color: #ffffff;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #a75a2d;
+
+        }
+
+        /* Added style for the second button */
+        .btn-secondary {
+            position: absolute;
+            top: 567px;
+            left: 250px;
+
+        }
+
+        .btn-secondary:hover {
+
+            color: #E9BD8C;
+        }
+
+        /* --- Products Section --- */
+        .products-section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #111111;
+            text-align: center;
+        }
+
+        /* --- Product Grid Container --- */
+        .product-grid {
+            width: 1160px;
+            margin: 80px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            position: relative;
+            left: -70px;
+            top: 50px;
+            /* เพิ่มบรรทัดนี้เพื่อเลื่อนลง 50px */
+        }
+
+
+
+        /* --- Individual Product Card --- */
+        .product-card {
+            width: 360px;
+            height: 411px;
+            max-width: 360px;
+            background-image: url('./images/Rectangle 69.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid #F5F5F5;
+            border-radius: 15px;
+            padding: 25px;
+
+            color: #F5F5F5;
+            text-align: left;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .product-image {
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: auto;
+            filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4));
+            transform: translateY(-0.1px);
+
+        }
+
+        .price-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+
+        }
+
+        .product-name {
+            font-family: 'inter', serif;
+            /* <-- Add this line */
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .add-to-cart-btn {
+            background-color: #c86e3b;
+            color: #fff;
+            padding: 8px 25px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            /* This pushes items apart */
+            align-items: center;
+            /* This keeps them vertically aligned */
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #a75a2d;
+        }
+
+        /* --- Promo Section --- */
+        .promo-section {
+            height: 442px;
+            /* Height from your layout */
+
+            /* Background image with a dark overlay for text readability */
+            background-image: linear-gradient(rgba(253, 249, 249, 0.5), rgba(201, 194, 194, 0.5)), url('./images/Rectangle\ 45.png');
+            background-size: cover;
+            background-position: center;
+
+            color: #933C24;
+            /* White text */
+
+            /* Use Flexbox to perfectly center the content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .promo-title {
+            font-family: 'Sansita Swashed', cursive;
+            /* Elegant script font */
+            font-size: 3.5rem;
+            /* 56px */
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .promo-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #5D5D5D;
+            /* <-- Add this line */
+        }
+
+        .btn-promo {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            color: #ffffff;
+
+            /* --- Changes for Orange Color --- */
+            background-color: #c86e3b;
+            /* <-- Main orange background */
+            border: 2px solid #c86e3b;
+            /* <-- Orange border to match */
+        }
+
+        .btn-promo:hover {
+            background-color: #a75a2d;
+            /* <-- Darker orange for hover */
+            border-color: #a75a2d;
+            /* <-- Darker border for hover */
+            color: #ffffff;
+        }
+
+        /* --- Explore More Section --- */
+        .explore-section {
+            padding: 100px 0;
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            font-family: Sansita Swashed, serif;
+        }
+
+        /* --- Category Navigation --- */
+        .category-nav {
+            margin-bottom: 50px;
+        }
+
+        .category-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .category-nav a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #888888;
+            /* Inactive link color */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .category-nav a:hover {
+            color: #c86e3b;
+            /* Hover color */
+            text-decoration: underline;
+            /* เพิ่มบรรทัดนี้เพื่อใส่เส้นใต้ */
+        }
+
+        .category-nav a.active {
+            color: #c86e3b;
+            /* Active link color */
+        }
+
+        /* --- Image Gallery Grid --- */
+        .gallery-grid {
+            width: 1120px;
+            margin: 0 auto;
+            /* Center the grid */
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 equal columns */
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+
+        }
+
+        /* --- about Section --- */
+        .about-us-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 454px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/Rectangle\ 41.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .about-us-heading {
+            font-family: 'Sansita Swashed', cursive;
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            font-style: normal;
+            margin-bottom: 20px;
+        }
+
+        .about-us-content {
+            max-width: 600px;
+            /* This is to keep the content from getting too wide on large screens */
+        }
+
+        .about-us-heading {
+            font-family: 'Sansita Swashed', serif;
+            font-size: 3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .about-us-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 100%;
+
+            letter-spacing: 0%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-us-button {
+            background-color: #A34E37;
+            /* Dark reddish-brown from the image */
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-us-button:hover {
+            background-color: #8C432E;
+        }
+
+        @media (max-width: 768px) {
+            .about-us-heading {
+                font-size: 2.5rem;
+            }
+
+            .about-us-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* --- featured-treats Section --- */
+        .featured-treats-container {
+            /* กำหนดขนาดของ container ตามที่คุณระบุมา */
+            width: 464px;
+            height: 40px;
+
+
+            margin: 0 auto;
+
+            /* ปรับการจัดแสดงเพื่อให้ออกแบบได้ง่าย */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .featured-treats-heading {
+            margin: 0;
+            padding: 0;
+            margin-top: 250px !important;
+            font-family: Sansita Swashed;
+            font-size: 64px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+
+        .treats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 250px;
+            /* เพิ่มโค้ดนี้เพื่อดันคอนเทนเนอร์ลง */
+        }
+
+        .treat-card {
+            text-align: center;
+            color: black;
+            width: 360px;
+        }
+
+        .treat-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .treat-details {
+            display: flex;
+            /* ใช้ Flexbox เพื่อจัดองค์ประกอบลูก */
+            justify-content: space-between;
+            /* แยกองค์ประกอบให้ชิดซ้ายและขวา */
+            align-items: center;
+            /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+            padding: 0 15px;
+            /* เพิ่มระยะห่างด้านข้างเล็กน้อย */
+            margin-top: 15px;
+        }
+
+        .treat-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .treat-price {
+            font-size: 18px;
+            margin: 0;
+        }
+
+
+        .treat-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+
+        @media (max-width: 768px) {
+            .treats-container {
+                gap: 20px;
+            }
+
+            .treat-card {
+                width: 100%;
+                max-width: 360px;
+            }
+        }
+
+        /* footer */
+        .site-footer {
+            width: 1280px;
+            height: 633px;
+            margin-top: 100px;
+            background-image: url('./images/Rectangle\ 75.png');
+            background-size: cover;
+            background-position: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 50px;
+            /* ปรับ padding ให้คอนเทนเนอร์มีพื้นที่ว่างรอบด้าน */
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .footer-logo {
+            position: absolute;
+            /* ใช้ position: absolute เพื่อให้สามารถกำหนดตำแหน่งตามค่า top/left ได้ */
+            width: 150px;
+            height: 154px;
+            top: 5030px;
+            /* ปรับค่านี้เพื่อให้โลโก้อยู่ในตำแหน่งที่ต้องการ */
+            left: 20px;
+            z-index: 10;
+        }
+
+        .social-media {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+            margin-right: 30px;
+            /* ปรับเพิ่มค่านี้เพื่อขยับไปทางซ้ายอีกหน่อย */
+            margin-top: 35px;
+            /* ปรับเพิ่มค่านี้เพื่อขยับลงมาเล็กน้อย */
+        }
+
+        .follow-text {
+            font-size: 1rem;
+            color: #D4B384;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #D4B384;
+        }
+
+        .footer-divider {
+            border-bottom: 1px solid #777;
+            margin: 20px 0;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .column-heading {
+            font-size: 36px;
+            font-weight: bold;
+            color: #D4B384;
+            margin-bottom: 20px;
+        }
+
+        .footer-column p {
+            margin: 0 0 10px;
+            line-height: 1.5;
+            font-size: 24px;
+            /* เพิ่มขนาด font ของเนื้อหา About Us */
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 24px;
+            /* เพิ่มขนาด font ของเนื้อหา Explore */
+        }
+
+        .footer-links a:hover {
+            color: #D4B384;
+        }
+
+        .recent-news-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .news-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        .news-date {
+            font-size: 24px;
+            color: #aaa;
+            margin: 0;
+        }
+
+        .news-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 24px;
+            padding-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .social-media {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .footer-column {
+                min-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero-section">
+        <div class="logo-container">
+            <a href="#">
+                <img src="./images/Modrino__2.png" alt="Bakery Logo">
+            </a>
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <p>Deliciously Cafe</p>
+            <h1>Sweet Treats, Perfect Eats</h1>
+            <a href="#" class="btn-primary">Shop Now</a>
+            <a href="#" class="btn-secondary">Learn More</a>
+        </div>
+    </header>
+    <section class="products-section">
+        <h2 class="section-title">Top Products</h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img class="product-image" src="./images/g1.png" alt="Lattice Pastry">
+                <div class="product-info">
+                    <div class="price-line">
+                        <span class="product-price">40 Baht</span>
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+
+                    <div class="product-footer">
+                        <h3 class="product-name">Whole Grain<br>Bread</h3>
+                        <a href="#" class="add-to-cart-btn">Add</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="./images/g2.png" alt="Lattice Pastry">
+                <div class="product-info">
+                    <div class="price-line">
+                        <span class="product-price">40 Baht</span>
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+
+                    <div class="product-footer">
+                        <h3 class="product-name">Whole Grain<br>Bread</h3>
+                        <a href="#" class="add-to-cart-btn">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img class="product-image" src="./images/g3.png" alt="Lattice Pastry">
+                <div class="product-info">
+                    <div class="price-line">
+                        <span class="product-price">40 Baht</span>
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+
+                    <div class="product-footer">
+                        <h3 class="product-name">Whole Grain<br>Bread</h3>
+                        <a href="#" class="add-to-cart-btn">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img class="product-image" src="./images/g4.png" alt="Lattice Pastry">
+                <div class="product-info">
+                    <div class="price-line">
+                        <span class="product-price">40 Baht</span>
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+
+                    <div class="product-footer">
+                        <h3 class="product-name">Whole Grain<br>Bread</h3>
+                        <a href="#" class="add-to-cart-btn">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img class="product-image" src="./images/g5.png" alt="Lattice Pastry">
+                <div class="product-info">
+                    <div class="price-line">
+                        <span class="product-price">40 Baht</span>
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+
+                    <div class="product-footer">
+                        <h3 class="product-name">Whole Grain<br>Bread</h3>
+                        <a href="#" class="add-to-cart-btn">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img class="product-image" src="./images/g6.png" alt="Lattice Pastry">
+                <div class="product-info">
+                    <div class="price-line">
+                        <span class="product-price">40 Baht</span>
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+
+                    <div class="product-footer">
+                        <h3 class="product-name">Whole Grain<br>Bread</h3>
+                        <a href="#" class="add-to-cart-btn">Add</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+    <section class="promo-section">
+        <div class="promo-content">
+            <h2 class="promo-title">20% Off Your<br> First Order</h2>
+            <p class="promo-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt rem
+            </p>
+            <a href="#" class="btn-promo">Learn More</a>
+        </div>
+    </section>
+    </section>
+    <section class="explore-section">
+        <h2 class="section-title">Explore More</h2>
+
+        <nav class="category-nav">
+            <ul>
+                <li><a href="#">Cakes</a></li>
+                <li><a href="#">Muffins</a></li>
+                <li><a href="#">Croissant</a></li>
+                <li><a href="#">Bread</a></li>
+                <li><a href="#">Tart</a></li>
+                <li><a href="#">Favorite</a></li>
+            </ul>
+        </nav>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="./images/Rectangle 20.png" alt="Description of image 1">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Rectangle 21.png" alt="Description of image 2">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Rectangle 22.png" alt="Description of image 3">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Rectangle 23.png" alt="Description of image 4">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Rectangle 24.png" alt="Description of image 5">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Rectangle 25.png" alt="Description of image 6">
+            </div>
+        </div>
+    </section>
+    <section class="about-us-container">
+        <div class="about-us-content">
+            <h2 class="about-us-heading">About us</h2>
+            <p class="about-us-text">
+                Lorem ipsum dolor sit amet<br> consectetur adipisicing elit.<br> Nesciunt rem odit labore unde<br> nemo
+                omnis sequi.
+            </p>
+            <button class="about-us-button">Read More</button>
+        </div>
+    </section>
+    <div class="featured-treats-container">
+        <h2 class="featured-treats-heading">Featured Treats</h2>
+    </div>
+    <section class="featured-treats">
+        <div class="treats-container">
+
+            <div class="treat-card">
+                <img src="./images/Rectangle 156.png" alt="Puff Pastry" class="treat-image">
+                <div class="treat-details">
+                    <h3 class="treat-name">Puff Pastry</h3>
+                    <p class="treat-price">8 Baht</p>
+                </div>
+            </div>
+
+            <div class="treat-card">
+                <img src="./images/Rectangle 153.png" alt="Doughnuts" class="treat-image">
+                <div class="treat-details">
+                    <h3 class="treat-name">Doughnuts</h3>
+                    <p class="treat-price">8 Baht</p>
+                </div>
+            </div>
+
+            <div class="treat-card">
+                <img src="./images/Rectangle 154.png" alt="Brownies" class="treat-image">
+                <div class="treat-details">
+                    <h3 class="treat-name">Brownies</h3>
+                    <p class="treat-price">8 Baht</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="logo-container">
+                <img src="./images/Modrino__2.png" alt="Keithston Logo" class="footer-logo">
+            </div>
+            <div class="social-media">
+                <span class="follow-text">Follow us</span>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h3 class="column-heading">About Us</h3>
+                <p>(02) 807-4500</p>
+                <p>info@sau.ac.th</p>
+                <p>19/1 Phetkasem Road<br>Nongkham Bangkok<br>10160</p>
+            </div>
+            <div class="footer-column">
+                <h3 class="column-heading">Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column recent-news-column">
+                <h3 class="column-heading">Recent News</h3>
+                <div class="news-item">
+                    <img src="./images/Rectangle 157.png" alt="News 1" class="news-image">
+                    <div class="news-text">
+                        <p class="news-date">June 14, 2025</p>
+                        <p class="news-title">Puff pastry bliss.</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img src="./images/Rectangle 158.png" alt="News 2" class="news-image">
+                    <div class="news-text">
+                        <p class="news-date">June 14, 2025</p>
+                        <p class="news-title">Puff pastry bliss.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bake House. All rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>
